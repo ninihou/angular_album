@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-
+import {AlbumCardComponent} from './components/album-card/album-card.component';
 import { ItunesService, Album } from './services/itunes.service';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [AlbumCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

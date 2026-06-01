@@ -20,10 +20,7 @@
 
   <div class="album-grid">
     @for (album of albums; track album.collectionName) {
-      <div class="album-card">
-        <img [src]="album.artworkUrl100" [alt]="album.collectionName" />
-        <p>{{ album.collectionName }}</p>
-      </div>
+      <app-album-card [album]="album" />
     }
   </div>
 </main>

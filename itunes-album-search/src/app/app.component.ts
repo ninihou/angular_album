@@ -15,7 +15,7 @@ export class AppComponent {
 
   constructor(private itunesService: ItunesService) {}
 
-  onSearch(event: Event): void {
+  onSearch(event: Event): void {// hit enter
     const input = event.target as HTMLInputElement;
     const artist = input.value.trim();
     if (!artist) return;
@@ -30,4 +30,12 @@ export class AppComponent {
       this.resultCount = data.resultCount;
     });
   }
+ onSearchClick(artist: string): void {
+  console.log('search click button artistName:', artist);
+  this.artistName = artist;
+  this.itunesService.searchAlbums(artist).subscribe(data => {
+    this.albums = data.results;
+    this.resultCount = data.resultCount;
+  });
+ }
 }

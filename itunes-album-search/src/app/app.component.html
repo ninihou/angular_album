@@ -1,12 +1,13 @@
 <header class="header">
   <div class="search-wrapper">
     <input
+      #searchInput
       type="text"
       class="search-input"
       placeholder="Search..."
       (keydown.enter)="onSearch($event)"
     />
-    <div class="search-btn">Search</div>
+    <div class="search-btn" (click)="onSearchClick(searchInput.value)">Search</div>
   </div>
 </header>
 
@@ -20,7 +21,9 @@
 
   <div class="album-grid">
     @for (album of albums; track album.collectionName) {
-      <app-album-card [album]="album" />
+      <div class="album-card-border">
+        <app-album-card [album]="album" />
+      </div>
     }
   </div>
 </main>

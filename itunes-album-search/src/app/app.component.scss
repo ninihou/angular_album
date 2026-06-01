@@ -16,9 +16,31 @@
 .heading {
   text-align: center;
 }
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
 .album-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
   padding: 20px;
+}
+.divider {
+  height: 1px;
+  background-color: #007A78;
+  margin: 20px 0;
+}
+.header {
+  background-color: #007A78;
+  padding: 12px 0;
+  color: white;
+  border-radius: 20px
+}
+.album-card-border {
+  border: 1px solid #007A78;
+  border-radius: 4px;
+  padding: 8px;
+  display: block;
 }

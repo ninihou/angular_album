@@ -1,0 +1,25 @@
+<div class="flight-booker">
+  <h2>Book a Flight</h2>
+
+  <select [(ngModel)]="flightType">
+    <option value="one-way">One-way flight</option>
+    <option value="return">Return flight</option>
+  </select>
+
+  <div>
+    <label>Departure Date</label>
+    <input type="date" [(ngModel)]="departureDate" />
+  </div>
+
+  @if (flightType === 'return') {
+  <div>
+    <label>Return Date</label>
+    <input type="date" [(ngModel)]="returnDate" [min]="departureDate" />
+  </div>
+  } @else {
+  <div></div>
+  }
+  
+
+  <button (click)="bookFlight()">Book</button>
+</div>

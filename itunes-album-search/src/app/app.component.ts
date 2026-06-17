@@ -1,41 +1,10 @@
 import { Component } from '@angular/core';
-import {AlbumCardComponent} from './components/album-card/album-card.component';
-import { ItunesService, Album } from './services/itunes.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [AlbumCardComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  albums: Album[] = [];
-  artistName = '';
-  resultCount = 0;
-
-  constructor(private itunesService: ItunesService) {}
-
-  onSearch(event: Event): void {// hit enter
-    const input = event.target as HTMLInputElement;
-    const artist = input.value.trim();
-    if (!artist) return;
-
-    this.artistName = artist;
-    console.log('search...:', artist);
-    this.itunesService.searchAlbums(artist).subscribe(data => {
-      console.log('api res:', data);
-      console.log('total results:', data.resultCount);
-      console.log('first album:', data.results[0]);
-      this.albums = data.results;
-      this.resultCount = data.resultCount;
-    });
-  }
- onSearchClick(artist: string): void {
-  console.log('search click button artistName:', artist);
-  this.artistName = artist;
-  this.itunesService.searchAlbums(artist).subscribe(data => {
-    this.albums = data.results;
-    this.resultCount = data.resultCount;
-  });
- }
-}
+export class AppComponent {}

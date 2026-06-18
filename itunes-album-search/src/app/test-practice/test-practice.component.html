@@ -1,0 +1,58 @@
+<div class="form-container">
+  <h2>User Registration</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label>Username</label>
+      <input type="text" formControlName="username" placeholder="Username" />
+      @if (username.invalid && username.touched) {
+        <span class="error">Username is required and must be at least 3 characters long.</span>
+      }
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="Email" />
+      @if (email.invalid && email.touched) {
+        <span class="error">Please enter a valid email address.</span>
+      }
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input type="password" formControlName="password" placeholder="Password" />
+      @if (password.invalid && password.touched) {
+        <span class="error">Password is required and must be at least 6 characters long.</span>
+      }
+    </div>
+
+    <div class="field">
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+      @if (confirmPassword.touched && form.hasError('passwordMismatch')) {
+        <span class="error">Passwords do not match.</span>
+      }
+    </div>
+
+    <div class="field">
+      <label>Preferred Contact Method</label>
+      <select formControlName="preferredContact">
+        <option value="Email">Email</option>
+        <option value="Phone">Phone</option>
+      </select>
+    </div>
+
+    @if (preferredContact.value === 'Phone') {
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="text" formControlName="phoneNumber" placeholder="Phone Number" />
+        @if (phoneNumber.invalid) {
+          <span class="error">Please provide at least one contact method.</span>
+        }
+      </div>
+    }
+
+    <button type="submit" [disabled]="form.invalid">Save</button>
+
+  </form>
+</div>

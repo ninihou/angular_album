@@ -51,7 +51,13 @@ export class TestPracticeComponent {
     console.log('Form submitted');
     if (this.form.valid) {
       console.log('Form submitted:', this.form.value);
-      this.form.reset({ preferredContact: 'Email' });
+      this.form.reset({ username: null,
+      email: null,
+      password: null,
+      confirmPassword: null,
+      phoneNumber: null,
+      preferredContact: 'Email' 
+      });
     }
   }
 }

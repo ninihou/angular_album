@@ -10,7 +10,7 @@
       }
     </div>
 
-    <div class="field">
+    <div>
       <label>Email</label>
       <input type="email" formControlName="email" placeholder="Email" />
       @if (email.invalid && email.touched) {
@@ -18,7 +18,7 @@
       }
     </div>
 
-    <div class="field">
+    <div>
       <label>Password</label>
       <input type="password" formControlName="password" placeholder="Password" />
       @if (password.invalid && password.touched) {
@@ -34,7 +34,7 @@
       }
     </div>
 
-    <div class="field">
+    <div>
       <label>Preferred Contact Method</label>
       <select formControlName="preferredContact">
         <option value="Email">Email</option>
@@ -43,7 +43,7 @@
     </div>
 
     @if (preferredContact.value === 'Phone') {
-      <div class="field">
+      <div>
         <label>Phone Number</label>
         <input type="text" formControlName="phoneNumber" placeholder="Phone Number" />
         @if (phoneNumber.invalid) {

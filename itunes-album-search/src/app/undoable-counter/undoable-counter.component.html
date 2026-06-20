@@ -1,0 +1,15 @@
+<div class="undoable-counter">
+<h1>Undoable Counter</h1>
+<button (click)="undo()">Undo</button>
+<button (click)="redo()">Redo</button>
+
+<button (click)=change(-100)>-100</button>
+<button (click)=change(-10)>-10</button>
+<button (click)=change(-1)>-1</button>
+<p>{{count()}}</p>
+<button (click)=change(1)>1</button>
+<button (click)=change(10)>10</button>
+<button (click)=change(100)>100</button>
+
+
+</div>

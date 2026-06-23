@@ -1,0 +1,13 @@
+<p>crud works!</p>
+@for (product of products(); track products.id) {
+    <div>
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <p>{{ product.category }}</p>
+    </div>
+}
+
+
+<input type="text" [(ngModel)]="newTitle" placeholder="Title" />
+<input type="text" [(ngModel)]="newDescription" placeholder="Description" />
+<button (click)="createProduct()">Create Product</button>

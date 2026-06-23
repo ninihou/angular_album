@@ -1,0 +1,35 @@
+<h2>GitHub User Search</h2>
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
+
+<div>
+  <input type="text" placeholder="Username" #usernameInput  pattern="^[a-zA-Z0-9-]+$" />
+  <button (click)="search(usernameInput.value)" >Search</button>
+</div>
+
+<!-- </form> -->
+
+<p>{{errmsg}}</p>
+
+<div>
+Filter
+  <input type="text" placeholder="Filter results..." (input)="filterText.set($any($event.target).value)"/>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Username</th>
+      <th>Profile URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(userDetail of filteredUsers(); track userDetail.id) {
+      <tr>
+        <td>{{ userDetail.id }}</td>
+        <td>{{ userDetail.login }}</td>
+        <td>{{ userDetail.url }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

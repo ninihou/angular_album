@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../Models/product';
 
 
 @Component({
   selector: 'app-crud',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './crud.component.html',
   styleUrl: './crud.component.scss',
 })

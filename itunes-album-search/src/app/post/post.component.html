@@ -1,0 +1,13 @@
+<p>post works!</p>
+<h2>Post of lists</h2>
+
+@for(post of posts(); track post.id) {
+
+<h3 (click)="showComment(post.id)">{{post.id}} - {{post.title}}</h3>
+@if (!close){
+    @for(comment of comments(); track comment.id){
+    
+        <h4>{{comment.id}} - {{comment.name}}</h4>
+    }
+
+} }
